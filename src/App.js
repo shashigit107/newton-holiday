@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const data=[
+    {id:"location1",cities:"Goa(India)"},
+    {id:"location2",cities:"Amsterdam(Netherlands)"},
+    {id:"location3",cities:"New York(USA)"},
+    {id:"location4",cities:"Darjeeling(India)"},
+    {id:"location5",cities:"Tokyo(Japan)"},
+    {id:"location6",cities:"Lonavala(India)"}];
 
-export default App;
+      let finalData=data.filter((para)=>{
+     return para.cities.includes("India")
+    })
+
+    console.log(finalData);
+
+    return (
+      <div>
+        <ol >{finalData.map((para)=>{
+          return <li key={para.id}>{para.cities}</li>
+        })}</ol>
+      </div>
+    );
+  }
+  export default App
